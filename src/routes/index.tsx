@@ -34,7 +34,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
-import shieldEmblem from "@/assets/shield-emblem.png";
+import guardEmblem from "@/assets/guarda-emblem.png";
 
 export const Route = createFileRoute("/")({
   component: Index,
