@@ -340,11 +340,11 @@ function Hero() {
         <div className="relative flex justify-center md:justify-end">
           <div className="absolute h-64 w-64 rounded-full bg-accent/20 blur-3xl sm:h-80 sm:w-80" />
           <img
-            src={shieldEmblem}
-            alt="Brasão da Guarda Municipal de Porto Velho — escudo em azul e dourado com águia e estrela"
-            width={360}
-            height={360}
-            className="relative w-[260px] drop-shadow-[0_20px_45px_oklch(0.26_0.05_258/0.55)] sm:w-[340px]"
+            src={guardEmblem}
+            alt="Brasão do curso preparatório — escudo amarelo e azul com a faixa Guarda Mirim"
+            width={340}
+            height={323}
+            className="relative w-[280px] drop-shadow-[0_20px_45px_oklch(0.26_0.05_258/0.55)] sm:w-[360px]"
           />
         </div>
       </div>
