@@ -228,8 +228,7 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <Hero />
-      <Problem />
-      <Solution />
+      <ProblemSolution />
       <QuestionsOrganized />
       <GabaritoComentado />
       <ConhecimentosPortoVelho />
@@ -384,87 +383,100 @@ function Hero() {
   );
 }
 
-function Problem() {
+function ProblemSolution() {
+  const problemaLista = [
+    "Questões espalhadas pela internet",
+    "Dificuldade para saber o que revisar",
+    "Falta de organização na reta final",
+    "Não saber onde estão seus principais erros",
+  ];
+  const solucaoLista = [
+    "Blocos de questões organizados",
+    "Gabarito comentado",
+    "Mapas mentais para revisão",
+    "Cronograma de 27 dias até a prova",
+    "Conhecimentos específicos de Porto Velho",
+  ];
+  const fluxo = ["Estude", "Resolva", "Corrija", "Revise"];
+
   return (
-    <section className="mx-auto max-w-5xl px-4 py-20 sm:px-6">
-      <div className="grid items-center gap-12 md:grid-cols-[0.9fr_1.1fr]">
-        <div>
-          <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-destructive">
-            <XCircle className="size-4" />
-            O erro que pode estar atrasando sua preparação
-          </div>
-          <h2 className="text-3xl font-bold text-foreground sm:text-4xl">
-            Estudar horas não significa estar preparado para resolver questões.
+    <section className="bg-background py-20 sm:py-24">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        {/* Topo da seção */}
+        <div className="mx-auto max-w-2xl text-center">
+          <h2 className="font-display text-3xl font-extrabold text-foreground sm:text-4xl">
+            PROBLEMA <span className="text-muted-foreground">×</span> SOLUÇÃO
           </h2>
-          <div className="divider-gold mt-5" />
+          <div className="divider-gold mx-auto mt-5" />
           <p className="mt-5 leading-relaxed text-muted-foreground">
-            Você pode passar horas lendo conteúdo... Mas quando aparece uma
-            questão diferente, pode descobrir que ainda não domina aquele
-            assunto.
-          </p>
-          <p className="mt-4 leading-relaxed text-muted-foreground">
-            E é justamente por isso que resolver questões precisa fazer parte da
-            sua preparação.
-          </p>
-          <p className="mt-5 font-medium text-foreground">
-            O problema é que muitos candidatos:
+            A diferença entre estudar de forma desorganizada e treinar com uma
+            preparação direcionada para a GCM Porto Velho.
           </p>
         </div>
-        <Card className="border-destructive/20 bg-card p-6 sm:p-8">
-          <ul className="space-y-4 text-sm">
-            {[
-              "Estudam sem testar o que realmente aprenderam",
-              "Resolvem questões espalhadas e sem organização",
-              "Não sabem quais assuntos estão errando",
-              "Corrigem a questão, mas não entendem o motivo do erro",
-              "Deixam a revisão para os últimos dias",
-            ].map((t) => (
-              <li key={t} className="flex items-start gap-3">
-                <span className="mt-0.5 flex size-6 shrink-0 items-center justify-center rounded-full bg-destructive/10 text-destructive">
-                  <XCircle className="size-4" />
-                </span>
-                <span className="text-foreground/90">{t}</span>
-              </li>
-            ))}
-          </ul>
-        </Card>
-      </div>
-    </section>
-  );
-}
 
-function Solution() {
-  return (
-    <section className="surface-navy relative overflow-hidden py-20 sm:py-24">
-      <div className="relative mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeading
-          light
-          eyebrow="A solução"
-          title={
-            <>
-              Treine. Corrija. Revise.{" "}
-              <span className="text-gold-gradient">Repita.</span>
-            </>
-          }
-          desc="Criamos um material direcionado para quem está se preparando para a Guarda Municipal de Porto Velho 2026."
-        />
-        <p className="mx-auto mt-6 max-w-2xl text-center text-base leading-relaxed text-background/75">
-          Os conteúdos são organizados em blocos de 80 questões, permitindo que
-          você avance por assunto, teste seu conhecimento e identifique os pontos
-          que ainda precisam de atenção.
-        </p>
-        <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-background/80 sm:text-sm">
-          {["Estude", "Resolva", "Corrija", "Revise", "Repita"].map((s, i, arr) => (
+        {/* Dois cards lado a lado no desktop */}
+        <div className="mt-14 grid gap-6 md:grid-cols-2 md:items-stretch">
+          {/* CARD 1 — PROBLEMA */}
+          <div className="flex flex-col rounded-2xl border border-border/70 bg-card p-7 shadow-[0_8px_30px_-12px_oklch(0.18_0.04_258/0.10)] sm:p-8">
+            <div className="mb-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] text-foreground/60">
+              <XCircle className="size-4 text-foreground/40" />
+              ESTUDO DESORGANIZADO
+            </div>
+            <p className="leading-relaxed text-muted-foreground">
+              Materiais espalhados, questões sem organização e excesso de
+              informação podem fazer você perder tempo estudando sem saber
+              exatamente onde precisa melhorar.
+            </p>
+            <ul className="mt-6 space-y-3 text-sm">
+              {problemaLista.map((t) => (
+                <li key={t} className="flex items-start gap-2.5">
+                  <span className="mt-0.5 text-foreground/40">✕</span>
+                  <span className="text-foreground/80">{t}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* CARD 2 — SOLUÇÃO (destaque) */}
+          <div className="surface-navy relative flex flex-col overflow-hidden rounded-2xl p-7 shadow-[0_18px_45px_-15px_oklch(0.22_0.06_258/0.55)] ring-1 ring-accent/30 sm:p-8">
+            <div className="pointer-events-none absolute -right-10 -top-10 size-40 rounded-full bg-accent/15 blur-3xl" />
+            <div className="relative">
+              <div className="mb-4 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.14em] text-gold-gradient">
+                <CheckCircle2 className="size-4 text-accent" />
+                PREPARAÇÃO DIRECIONADA
+              </div>
+              <p className="leading-relaxed text-background/85">
+                Um material organizado para você treinar, corrigir seus erros e
+                revisar os principais conteúdos da preparação para a GCM Porto
+                Velho 2026.
+              </p>
+              <ul className="mt-6 space-y-3 text-sm">
+                {solucaoLista.map((t) => (
+                  <li key={t} className="flex items-start gap-2.5">
+                    <span className="mt-0.5 text-accent">✓</span>
+                    <span className="text-background/90">{t}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        {/* Destaque visual inferior */}
+        <div className="mt-12 flex flex-wrap items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.16em] text-foreground sm:text-sm">
+          {fluxo.map((s, i, arr) => (
             <span key={s} className="flex items-center gap-2">
               <span className="rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 text-gold-gradient">
                 {s}
               </span>
-              {i < arr.length - 1 && <ArrowRight className="size-3.5 text-accent/70" />}
+              {i < arr.length - 1 && (
+                <ArrowRight className="size-4 text-accent/70" />
+              )}
             </span>
           ))}
         </div>
-        <p className="mx-auto mt-8 max-w-xl text-center text-sm font-semibold uppercase tracking-[0.14em] text-background/70">
-          A estratégia é simples
+        <p className="mt-6 text-center text-sm font-medium text-muted-foreground">
+          Mais organização para aproveitar melhor cada dia até a prova.
         </p>
       </div>
     </section>
