@@ -228,8 +228,7 @@ function Index() {
     <div className="min-h-screen bg-background text-foreground">
       <Header />
       <Hero />
-      <Problem />
-      <Solution />
+      <ProblemSolution />
       <QuestionsOrganized />
       <GabaritoComentado />
       <ConhecimentosPortoVelho />
