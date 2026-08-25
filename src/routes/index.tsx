@@ -359,26 +359,6 @@ function Hero() {
           </li>
         </ul>
       </div>
-      <div className="relative border-t border-background/10 bg-background/5">
-        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-4 py-6 text-center sm:px-6 lg:grid-cols-5">
-          {[
-            { k: "80", v: "Questões por bloco" },
-            { k: "100%", v: "Gabarito comentado" },
-            { k: "10", v: "Mapas mentais" },
-            { k: "27", v: "Dias de cronograma" },
-            { k: "20/09/2026", v: "Data da prova" },
-          ].map((s) => (
-            <div key={s.v} className="px-2 py-2">
-              <div className="font-display text-xl font-extrabold text-gold-gradient sm:text-2xl">
-                {s.k}
-              </div>
-              <div className="mt-1 text-[11px] font-medium uppercase tracking-[0.14em] text-background/70">
-                {s.v}
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
     </section>
   );
 }
