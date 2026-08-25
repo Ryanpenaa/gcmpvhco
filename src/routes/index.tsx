@@ -35,7 +35,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
-import guardEmblem from "@/assets/guarda-emblem.png";
+import gcmMockup from "@/assets/gcm-mockup.png";
 
 /**
  * ============================================================
