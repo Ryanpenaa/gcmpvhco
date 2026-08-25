@@ -288,78 +288,77 @@ function Hero() {
   return (
     <section id="topo" className="surface-hero relative overflow-hidden">
       <div className="pointer-events-none absolute inset-0 opacity-[0.06] [background:repeating-linear-gradient(135deg,oklch(0.985_0.012_80)_0,oklch(0.985_0.012_80)_1px,transparent_1px,transparent_22px)]" />
-      <div className="relative mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:px-6 md:grid-cols-[1.15fr_0.85fr] md:py-24">
-        <div>
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-gradient">
-            <Shield className="size-3.5" />
-            GCM Porto Velho 2026
-          </div>
-          <h1 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[1.05] text-background sm:text-5xl lg:text-[3.4rem]">
-            <span className="text-gold-gradient">Questões estratégicas</span> para
-            a Guarda Municipal de Porto Velho
-          </h1>
-          <p className="mt-6 max-w-xl text-lg leading-relaxed text-background/85">
-            Pare de estudar sem saber se realmente está preparado.
-          </p>
-          <p className="mt-4 max-w-xl text-base leading-relaxed text-background/70">
-            Treine com blocos de 80 questões, organizados para a preparação da
-            GCM Porto Velho 2026, com gabarito comentado, materiais de revisão e
-            bônus para ajudar você a chegar mais preparado para a prova.
-          </p>
-          <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm font-medium text-background/85">
-            <span className="flex items-center gap-1.5">
-              <BookOpen className="size-4 text-accent" /> Questões organizadas
-            </span>
-            <span className="flex items-center gap-1.5">
-              <ClipboardCheck className="size-4 text-accent" /> Gabarito comentado
-            </span>
-            <span className="flex items-center gap-1.5">
-              <Brain className="size-4 text-accent" /> Mapas mentais
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CalendarDays className="size-4 text-accent" /> Cronograma de 27
-              dias
-            </span>
-          </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild variant="gold" size="xl" className="shadow-lg">
-              <a href="#planos">
-                Quero começar a treinar
-                <ArrowRight className="size-4" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="xl"
-              className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"
-            >
-              <a href="#material">Ver o material por dentro</a>
-            </Button>
-          </div>
-          <ul className="mt-8 flex flex-wrap gap-x-6 gap-y-2 text-sm font-medium text-background/85">
-            <li className="flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-accent" /> Acesso imediato
-            </li>
-            <li className="flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-accent" /> Material digital
-            </li>
-            <li className="flex items-center gap-1.5">
-              <CheckCircle2 className="size-4 text-accent" /> Celular, tablet ou
-              computador
-            </li>
-          </ul>
+      <div className="relative mx-auto max-w-4xl px-4 py-16 text-center sm:px-6 md:py-20">
+        <div className="inline-flex items-center gap-2 rounded-full border border-accent/40 bg-accent/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-gold-gradient">
+          <Shield className="size-3.5" />
+          GCM Porto Velho 2026
         </div>
-        <div className="relative flex justify-center md:justify-end">
-          <div className="absolute h-64 w-64 rounded-full bg-accent/20 blur-3xl sm:h-80 sm:w-80" />
+        <h1 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[1.05] text-background sm:text-5xl lg:text-[3.4rem]">
+          <span className="text-gold-gradient">Questões estratégicas</span> para
+          a Guarda Municipal de Porto Velho
+        </h1>
+
+        {/* Mockup transparente logo após a headline */}
+        <div className="relative mt-8 flex justify-center">
+          <div className="pointer-events-none absolute inset-x-0 top-1/2 h-56 -translate-y-1/2 rounded-full bg-accent/20 blur-3xl" />
           <img
-            src={guardEmblem}
-            alt="Brasão do material preparatório — escudo amarelo e azul com a faixa Guarda Mirim"
-            width={340}
-            height={323}
-            className="relative w-[280px] drop-shadow-[0_20px_45px_oklch(0.26_0.05_258/0.55)] sm:w-[360px]"
+            src={gcmMockup}
+            alt="Mockup do material GCM Porto Velho 2026 — apostila, notebook, tablet e celular com questões, gabarito comentado e mapas mentais"
+            width={1240}
+            height={804}
+            className="relative w-full max-w-3xl drop-shadow-[0_25px_55px_oklch(0.18_0.04_258/0.55)]"
           />
         </div>
+
+        {/* Subheadline após o mockup */}
+        <p className="mx-auto mt-8 max-w-2xl text-lg font-semibold leading-relaxed text-background/90">
+          Apostila com 800 questões comentadas, simulados e cronograma
+          estratégico focado no conteúdo exigido para o concurso da GCM.
+        </p>
+
+        <div className="mt-6 flex flex-wrap justify-center gap-x-5 gap-y-2 text-sm font-medium text-background/85">
+          <span className="flex items-center gap-1.5">
+            <BookOpen className="size-4 text-accent" /> Questões organizadas
+          </span>
+          <span className="flex items-center gap-1.5">
+            <ClipboardCheck className="size-4 text-accent" /> Gabarito comentado
+          </span>
+          <span className="flex items-center gap-1.5">
+            <Brain className="size-4 text-accent" /> Mapas mentais
+          </span>
+          <span className="flex items-center gap-1.5">
+            <CalendarDays className="size-4 text-accent" /> Cronograma de 27
+            dias
+          </span>
+        </div>
+        <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+          <Button asChild variant="gold" size="xl" className="shadow-lg">
+            <a href="#planos">
+              Quero começar a treinar
+              <ArrowRight className="size-4" />
+            </a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            size="xl"
+            className="border-background/30 bg-transparent text-background hover:bg-background/10 hover:text-background"
+          >
+            <a href="#material">Ver o material por dentro</a>
+          </Button>
+        </div>
+        <ul className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm font-medium text-background/85">
+          <li className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-4 text-accent" /> Acesso imediato
+          </li>
+          <li className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-4 text-accent" /> Material digital
+          </li>
+          <li className="flex items-center gap-1.5">
+            <CheckCircle2 className="size-4 text-accent" /> Celular, tablet ou
+            computador
+          </li>
+        </ul>
       </div>
       <div className="relative border-t border-background/10 bg-background/5">
         <div className="mx-auto grid max-w-6xl grid-cols-2 gap-px px-4 py-6 text-center sm:px-6 lg:grid-cols-5">
