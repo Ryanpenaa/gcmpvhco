@@ -36,6 +36,7 @@ import {
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
 import gcmMockup from "@/assets/gcm-mockup.png";
+import kitCompletoAsset from "@/assets/kit-completo.png.asset.json";
 
 /**
  * ============================================================
