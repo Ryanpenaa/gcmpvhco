@@ -4,25 +4,20 @@ import {
   Shield,
   BookOpen,
   Brain,
-  PencilLine,
   Target,
-  FileText,
   ClipboardCheck,
   CheckCircle2,
   XCircle,
   Gift,
   CalendarDays,
-  Smartphone,
   Award,
   HelpCircle,
   ChevronDown,
   ArrowRight,
   Sparkles,
   MapPin,
-  RefreshCw,
   Scale,
   Gavel,
-  Globe2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -109,14 +104,6 @@ const publicoAlvo = [
   "Quer organizar sua reta final",
 ];
 
-const materialPrincipal = [
-  "Blocos de questões",
-  "80 questões por bloco",
-  "Questões de múltipla escolha",
-  "Gabarito comentado",
-  "Material digital",
-  "Acesso imediato",
-];
 
 const faqs = [
   {
