@@ -77,13 +77,6 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const passosQuestoes = [
-  { n: "01", t: "Estudar", d: "Revise o conteúdo necessário." },
-  { n: "02", t: "Resolver", d: "Faça as 80 questões do bloco." },
-  { n: "03", t: "Corrigir", d: "Confira o gabarito comentado." },
-  { n: "04", t: "Identificar", d: "Descubra quais assuntos você ainda está errando." },
-  { n: "05", t: "Revisar", d: "Volte aos pontos que precisam de atenção." },
-];
 
 const conhecimentosLocais = [
   {
