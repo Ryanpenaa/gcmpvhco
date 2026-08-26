@@ -6,7 +6,6 @@ import {
   Brain,
   PencilLine,
   Target,
-  Landmark,
   FileText,
   ClipboardCheck,
   CheckCircle2,
