@@ -36,6 +36,7 @@ import {
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
 import gcmMockup from "@/assets/gcm-mockup.png";
+import kitCompletoAsset from "@/assets/kit-completo.png.asset.json";
 
 /**
  * ============================================================
@@ -76,13 +77,6 @@ export const Route = createFileRoute("/")({
   }),
 });
 
-const passosQuestoes = [
-  { n: "01", t: "Estudar", d: "Revise o conteúdo necessário." },
-  { n: "02", t: "Resolver", d: "Faça as 80 questões do bloco." },
-  { n: "03", t: "Corrigir", d: "Confira o gabarito comentado." },
-  { n: "04", t: "Identificar", d: "Descubra quais assuntos você ainda está errando." },
-  { n: "05", t: "Revisar", d: "Volte aos pontos que precisam de atenção." },
-];
 
 const conhecimentosLocais = [
   {
@@ -471,24 +465,16 @@ function QuestionsOrganized() {
         title="Questões organizadas para sua preparação"
         desc="Não fique procurando questões em vários lugares. Você recebe os conteúdos organizados em blocos, com questões de múltipla escolha e gabarito comentado ao final."
       />
-      <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-        {passosQuestoes.map((s) => (
-          <div key={s.n} className="relative rounded-2xl border border-border bg-card p-6 text-center">
-            <span className="absolute right-4 top-4 font-display text-sm font-bold text-accent/50">
-              {s.n}
-            </span>
-            <span className="mx-auto flex size-12 items-center justify-center rounded-xl bg-accent/15 text-accent-foreground">
-              <ClipboardCheck className="size-6" />
-            </span>
-            <p className="mt-4 text-sm font-bold uppercase tracking-wider text-foreground">{s.t}</p>
-            <p className="mt-2 text-xs leading-relaxed text-muted-foreground">{s.d}</p>
-          </div>
-        ))}
+      <div className="relative mt-12 flex justify-center">
+        <div className="pointer-events-none absolute inset-x-0 top-1/2 h-48 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl" />
+        <img
+          src={kitCompletoAsset.url}
+          alt="Kit completo GCM Porto Velho 2026 — blocos de questões, gabarito comentado, 10 mapas mentais, cronograma de 27 dias e conhecimentos de Porto Velho"
+          width={1379}
+          height={502}
+          className="relative w-full max-w-4xl drop-shadow-[0_20px_45px_oklch(0.18_0.04_258/0.18)]"
+        />
       </div>
-      <p className="mx-auto mt-8 max-w-2xl text-center text-sm text-muted-foreground">
-        Cada bloco foi pensado para você estudar, resolver, corrigir, identificar
-        e revisar.
-      </p>
     </section>
   );
 }
