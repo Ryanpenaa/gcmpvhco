@@ -224,9 +224,6 @@ function Index() {
       <Hero />
       <ProblemSolution />
       <QuestionsOrganized />
-      <GabaritoComentado />
-      <ConhecimentosPortoVelho />
-      <DirecionadoGcm />
       <Bonuses />
       <WhyQuestions />
       <HowItWorks />
