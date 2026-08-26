@@ -104,14 +104,6 @@ const publicoAlvo = [
   "Quer organizar sua reta final",
 ];
 
-const materialPrincipal = [
-  "Blocos de questões",
-  "80 questões por bloco",
-  "Questões de múltipla escolha",
-  "Gabarito comentado",
-  "Material digital",
-  "Acesso imediato",
-];
 
 const faqs = [
   {
