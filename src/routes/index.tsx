@@ -78,23 +78,6 @@ export const Route = createFileRoute("/")({
 });
 
 
-const conhecimentosLocais = [
-  {
-    icon: Landmark,
-    title: "História de Porto Velho",
-    desc: "Principais acontecimentos, formação histórica e fatos importantes do município.",
-  },
-  {
-    icon: Globe2,
-    title: "Geografia de Porto Velho",
-    desc: "Aspectos territoriais, geográficos e características do município.",
-  },
-  {
-    icon: MapPin,
-    title: "Conhecimentos locais",
-    desc: "Informações relevantes para a preparação específica da prova.",
-  },
-];
 
 const mapasMentais = [
   "História de Porto Velho",
