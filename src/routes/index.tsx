@@ -207,10 +207,6 @@ function Index() {
       <ProblemSolution />
       <QuestionsOrganized />
       <Bonuses />
-      <WhyQuestions />
-      <HowItWorks />
-      <Receive />
-      <FinalStretch />
       <ForWhom />
       <Pricing />
       <Guarantee />
