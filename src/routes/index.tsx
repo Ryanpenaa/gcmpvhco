@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Shield,
   BookOpen,
@@ -13,6 +13,8 @@ import {
   Award,
   HelpCircle,
   ChevronDown,
+  ChevronLeft,
+  ChevronRight,
   ArrowRight,
   Sparkles,
   MapPin,
@@ -30,7 +32,6 @@ import {
 } from "@/components/ui/accordion";
 import { Separator } from "@/components/ui/separator";
 import gcmMockup from "@/assets/gcm-mockup.png";
-import kitCompletoAsset from "@/assets/kit-completo.png.asset.json";
 
 /**
  * ============================================================
@@ -104,6 +105,15 @@ const publicoAlvo = [
   "Quer organizar sua reta final",
 ];
 
+
+const materialSlides = [
+  { src: "/material/01.png", alt: "Página 1 do material com questões de História de Porto Velho" },
+  { src: "/material/02.png", alt: "Página 2 do material com questões de História de Porto Velho" },
+  { src: "/material/03.png", alt: "Página 3 do material com questões de História de Porto Velho" },
+  { src: "/material/04.png", alt: "Página 4 do material com questões de História de Porto Velho" },
+  { src: "/material/05.png", alt: "Página 5 do material com questões de História de Porto Velho" },
+  { src: "/material/06.png", alt: "Página 6 do material com questões de Conhecimentos de Porto Velho" },
+];
 
 const faqs = [
   {
@@ -194,7 +204,6 @@ function Index() {
       <ProblemSolution />
       <QuestionsOrganized />
       <Bonuses />
-      <ForWhom />
       <Pricing />
       <Guarantee />
       <Faq />
@@ -420,6 +429,26 @@ function ProblemSolution() {
 }
 
 function QuestionsOrganized() {
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setActiveSlide((current) => (current + 1) % materialSlides.length);
+    }, 4500);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const previousSlide = () => {
+    setActiveSlide((current) =>
+      current === 0 ? materialSlides.length - 1 : current - 1,
+    );
+  };
+
+  const nextSlide = () => {
+    setActiveSlide((current) => (current + 1) % materialSlides.length);
+  };
+
   return (
     <section id="material" className="mx-auto max-w-6xl px-4 py-20 sm:px-6 sm:py-24">
       <SectionHeading
@@ -427,22 +456,50 @@ function QuestionsOrganized() {
         title="Questões organizadas para sua preparação"
         desc="Não fique procurando questões em vários lugares. Você recebe os conteúdos organizados em blocos, com questões de múltipla escolha e gabarito comentado ao final."
       />
-      <div className="relative mt-12 flex justify-center">
-        <div className="pointer-events-none absolute inset-x-0 top-1/2 h-48 -translate-y-1/2 rounded-full bg-accent/10 blur-3xl" />
-        <img
-          src={kitCompletoAsset.url}
-          alt="Kit completo GCM Porto Velho 2026 — blocos de questões, gabarito comentado, 10 mapas mentais, cronograma de 27 dias e conhecimentos de Porto Velho"
-          width={1379}
-          height={502}
-          className="relative w-full max-w-4xl drop-shadow-[0_20px_45px_oklch(0.18_0.04_258/0.18)]"
-        />
+      <div className="relative mx-auto mt-12 max-w-4xl">
+        <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-[0_20px_45px_-15px_oklch(0.18_0.04_258/0.24)]">
+          <img
+            src={materialSlides[activeSlide].src}
+            alt={materialSlides[activeSlide].alt}
+            className="block h-auto w-full"
+          />
+        </div>
+
+        <button
+          type="button"
+          onClick={previousSlide}
+          aria-label="Imagem anterior"
+          className="absolute left-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-primary/90 text-primary-foreground shadow-lg transition-colors hover:bg-primary focus:outline-none focus:ring-2 focus:ring-accent sm:left-5"
+        >
+          <ChevronLeft className="size-6" />
+        </button>
+        <button
+          type="button"
+          onClick={nextSlide}
+          aria-label="Próxima imagem"
+          className="absolute right-3 top-1/2 flex size-11 -translate-y-1/2 items-center justify-center rounded-full bg-primary/90 text-primary-foreground shadow-lg transition-colors hover:bg-primary focus:outline-none focus:ring-2 focus:ring-accent sm:right-5"
+        >
+          <ChevronRight className="size-6" />
+        </button>
+
+        <div className="mt-5 flex items-center justify-center gap-2" aria-label="Navegação do carrossel">
+          {materialSlides.map((slide, index) => (
+            <button
+              key={slide.src}
+              type="button"
+              onClick={() => setActiveSlide(index)}
+              aria-label={`Ver imagem ${index + 1}`}
+              aria-current={index === activeSlide ? "true" : undefined}
+              className={`h-2.5 rounded-full transition-all ${
+                index === activeSlide ? "w-7 bg-accent" : "w-2.5 bg-border hover:bg-accent/60"
+              }`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );
 }
-
-
-
 
 function Bonuses() {
   return (
@@ -538,35 +595,6 @@ function Bonuses() {
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function ForWhom() {
-  return (
-    <section className="bg-secondary/40 py-20 sm:py-24">
-      <div className="mx-auto max-w-4xl px-4 sm:px-6">
-        <SectionHeading
-          eyebrow="Para quem é esse material"
-          title="É para você que quer treinar de verdade"
-        />
-        <ul className="mx-auto mt-12 grid max-w-3xl gap-3 sm:grid-cols-2">
-          {publicoAlvo.map((t) => (
-            <li
-              key={t}
-              className="flex items-start gap-3 rounded-xl border border-border bg-card px-4 py-3.5"
-            >
-              <CheckCircle2 className="mt-0.5 size-5 shrink-0 text-accent-foreground" />
-              <span className="text-sm font-medium text-foreground">{t}</span>
-            </li>
-          ))}
-        </ul>
-        <p className="mx-auto mt-8 max-w-2xl text-center text-base leading-relaxed text-muted-foreground">
-          E também para quem está começando agora. Você pode avançar bloco por
-          bloco e utilizar os mapas mentais e o cronograma para organizar seus
-          estudos.
-        </p>
       </div>
     </section>
   );
