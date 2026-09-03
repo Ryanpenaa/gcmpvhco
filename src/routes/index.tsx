@@ -210,8 +210,21 @@ function Index() {
 }
 
 function Header() {
+  const [remainingSeconds, setRemainingSeconds] = useState(15 * 60);
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setRemainingSeconds((current) => Math.max(current - 1, 0));
+    }, 1000);
+
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const minutes = String(Math.floor(remainingSeconds / 60)).padStart(2, "0");
+  const seconds = String(remainingSeconds % 60).padStart(2, "0");
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/85 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
         <a href="#topo" className="flex items-center gap-2.5">
           <Shield className="size-7 text-accent-foreground" />
@@ -236,9 +249,18 @@ function Header() {
             Dúvidas
           </a>
         </div>
-        <Button asChild variant="gold" size="sm" className="shadow">
-          <a href="#planos">Quero treinar</a>
-        </Button>
+        <a
+          href="#planos"
+          className="rounded-xl bg-destructive px-3 py-1.5 text-center text-destructive-foreground shadow-lg transition-transform hover:scale-[1.02] sm:px-4"
+          aria-label="Ir para a oferta antes do término do contador"
+        >
+          <span className="block text-[9px] font-bold uppercase tracking-[0.12em] sm:text-[10px]">
+            Oferta termina em
+          </span>
+          <span className="font-display text-lg font-extrabold leading-none sm:text-xl">
+            {minutes}:{seconds}
+          </span>
+        </a>
       </div>
     </header>
   );
