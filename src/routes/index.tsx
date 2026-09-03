@@ -249,8 +249,8 @@ function Hero() {
           GCM Porto Velho 2026
         </div>
         <h1 className="mt-6 font-display text-4xl font-extrabold uppercase leading-[1.05] text-background sm:text-5xl lg:text-[3.4rem]">
-          <span className="text-gold-gradient">Questões estratégicas</span> para
-          a Guarda Municipal de Porto Velho
+          <span className="text-gold-gradient">800 Questões estratégicas</span> para
+          a GCM de Porto Velho
         </h1>
 
         {/* Mockup transparente logo após a headline */}
