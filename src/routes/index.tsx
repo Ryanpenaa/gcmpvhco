@@ -207,7 +207,6 @@ function Index() {
       <Pricing />
       <Guarantee />
       <Faq />
-      <FinalCta />
       <Footer />
     </div>
   );
@@ -772,37 +771,6 @@ function Faq() {
             ))}
           </Accordion>
         </div>
-      </div>
-    </section>
-  );
-}
-
-function FinalCta() {
-  return (
-    <section className="surface-hero relative overflow-hidden py-20 text-center sm:py-28">
-      <div className="relative mx-auto max-w-3xl px-4 sm:px-6">
-        <Gavel className="mx-auto size-12 text-accent" />
-        <h2 className="mt-6 font-display text-3xl font-extrabold uppercase text-background sm:text-5xl">
-          A prova está marcada.{" "}
-          <span className="text-gold-gradient">20 de setembro de 2026.</span>
-        </h2>
-        <p className="mx-auto mt-5 max-w-xl text-lg text-background/80">
-          Você pode continuar procurando questões, resumos e materiais
-          espalhados... Ou pode começar a organizar sua preparação agora.
-        </p>
-        <p className="mx-auto mt-4 max-w-xl text-base font-medium text-background/85">
-          Estude. Resolva. Corrija. Revise. E chegue mais preparado para a prova
-          da GCM Porto Velho.
-        </p>
-        <Button asChild variant="gold" size="xl" className="mt-9 shadow-lg">
-          <a href="#planos">
-            Quero começar agora
-            <ArrowRight className="size-4" />
-          </a>
-        </Button>
-        <p className="mt-6 text-sm font-medium uppercase tracking-[0.16em] text-background/70">
-          GCM Porto Velho 2026 • Questões + Revisão Estratégica
-        </p>
       </div>
     </section>
   );
