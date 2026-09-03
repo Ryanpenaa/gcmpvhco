@@ -35,13 +35,10 @@ import gcmMockup from "@/assets/gcm-mockup.png";
 
 /**
  * ============================================================
- * CONFIGURAÇÃO DE PREÇOS
- * Altere aqui os valores exibidos na seção de planos.
- * Deixe PRECO_COMPLETO como "" para exibir "Em breve".
+ * CONFIGURAÇÃO DE PREÇO
  * ============================================================
  */
-const PRECO_BASICO = "R$ 9,90";
-const PRECO_COMPLETO = ""; // ex.: "R$ 47,90"
+const PRECO_MATERIAL = "R$ 23,90";
 
 const DATA_PROVA = "20 de setembro de 2026";
 
@@ -600,113 +597,75 @@ function Bonuses() {
 }
 
 function Pricing() {
-  return (
-    <section id="planos" className="py-20 sm:py-24">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6">
-        <SectionHeading
-          eyebrow="Escolha como começar"
-          title="Banco de questões + revisão estratégica GCM Porto Velho 2026"
-        />
-        <div className="mt-14 grid items-start gap-6 md:grid-cols-[0.85fr_1.15fr]">
-          {/* Plano Básico */}
-          <Card className="flex flex-col p-7 sm:p-8">
-            <div className="flex items-center gap-2 text-accent-foreground">
-              <MapPin className="size-5" />
-              <span className="text-sm font-semibold uppercase tracking-wider">
-                Plano básico
-              </span>
-            </div>
-            <h3 className="mt-4 font-display text-lg font-bold uppercase text-foreground">
-              100 Questões de História e Geografia de Porto Velho
-            </h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Para quem quer começar pelos conhecimentos locais.
-            </p>
-            <div className="mt-3">
-              <span className="font-display text-4xl font-extrabold text-foreground">
-                {PRECO_BASICO}
-              </span>
-            </div>
-            <Separator className="my-6" />
-            <ul className="space-y-3 text-sm">
-              {[
-                "100 questões",
-                "História de Porto Velho",
-                "Geografia de Porto Velho",
-                "Gabarito",
-                "Material digital",
-                "Acesso imediato",
-              ].map((f) => (
-                <li key={f} className="flex items-center gap-2.5">
-                  <CheckCircle2 className="size-4 shrink-0 text-accent-foreground" />
-                  <span className="text-foreground/90">{f}</span>
-                </li>
-              ))}
-            </ul>
-            <Button asChild variant="outline" size="xl" className="mt-7 w-full">
-              <a href="https://drive.google.com/file/d/1ndURm-7l3rU5LsuNaDDhmw9rxSbz6ezH/view?usp=drive_link">Quero as 100 questões</a>
-            </Button>
-          </Card>
+  const inclusos = [
+    "800 questões estratégicas",
+    "Blocos de questões organizados",
+    "Gabarito comentado",
+    "Conhecimentos de Porto Velho",
+    "Legislação e conteúdos específicos",
+    "10 mapas mentais de revisão",
+    "Cronograma de 27 dias",
+    "Material digital com acesso imediato",
+  ];
 
-          {/* Plano Completo */}
-          <Card className="price-featured relative flex flex-col overflow-hidden p-7 sm:p-9">
-            <div className="absolute right-0 top-0 flex items-center gap-1.5 rounded-bl-2xl bg-accent px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-accent-foreground">
-              <Award className="size-3.5" /> Mais completo
+  return (
+    <section id="planos" className="bg-secondary/40 py-20 sm:py-24">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6">
+        <SectionHeading
+          eyebrow="Acesso completo"
+          title="Tudo o que você precisa para treinar"
+          desc="Um material completo e organizado para você estudar, revisar e avançar com mais segurança até a prova."
+        />
+
+        <Card className="price-featured relative mx-auto mt-14 max-w-3xl overflow-hidden p-7 shadow-[0_22px_55px_-18px_oklch(0.18_0.04_258/0.32)] sm:p-10">
+          <div className="absolute -right-12 -top-12 size-48 rounded-full bg-accent/15 blur-3xl" />
+          <div className="relative grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 rounded-full bg-accent/15 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-accent-foreground">
+                <Shield className="size-4" />
+                Material completo
+              </div>
+              <h3 className="mt-5 font-display text-3xl font-extrabold uppercase leading-tight text-foreground sm:text-4xl">
+                GCM Porto Velho 2026
+              </h3>
+              <p className="mt-2 font-display text-base font-bold uppercase tracking-wide text-accent-foreground">
+                Questões + revisão estratégica
+              </p>
+              <p className="mt-5 text-sm leading-relaxed text-muted-foreground">
+                Tenha em um só lugar as questões, o gabarito comentado e os materiais de revisão para organizar sua preparação.
+              </p>
             </div>
-            <div className="flex items-center gap-2 text-accent-foreground">
-              <Shield className="size-5" />
-              <span className="text-sm font-semibold uppercase tracking-wider">
-                Plano completo
-              </span>
+
+            <div className="rounded-2xl border border-accent/35 bg-background/85 p-6 text-center shadow-sm">
+              <p className="text-xs font-bold uppercase tracking-[0.16em] text-muted-foreground">
+                Acesso completo por
+              </p>
+              <p className="mt-2 font-display text-5xl font-extrabold text-foreground">
+                {PRECO_MATERIAL}
+              </p>
+              <p className="mt-2 text-sm text-muted-foreground">
+                Pagamento único • acesso imediato
+              </p>
+              <Button asChild variant="gold" size="xl" className="mt-6 w-full shadow-lg">
+                <a href="https://pay.cakto.com.br/zdcctmn_1081703">
+                  Quero garantir meu acesso
+                  <ArrowRight className="size-4" />
+                </a>
+              </Button>
             </div>
-            <h3 className="mt-4 font-display text-2xl font-extrabold uppercase text-foreground">
-              GCM Porto Velho 2026
-            </h3>
-            <p className="mt-1 font-display text-base font-bold uppercase tracking-wide text-accent-foreground">
-              Questões + Revisão Estratégica
-            </p>
-            <div className="mt-4">
-              {PRECO_COMPLETO ? (
-                <span className="font-display text-4xl font-extrabold text-foreground">
-                  {PRECO_COMPLETO}
-                </span>
-              ) : (
-                <span className="font-display text-2xl font-bold text-muted-foreground">
-                  Valor em breve
-                </span>
-              )}
-            </div>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Para quem quer uma preparação mais completa e deseja treinar
-              diferentes conteúdos da prova em um único material.
-            </p>
-            <Separator className="my-6" />
-            <ul className="grid gap-2.5 text-sm sm:grid-cols-2">
-              {[
-                "Blocos de questões",
-                "80 questões por bloco",
-                "Gabarito comentado",
-                "Conhecimentos de Porto Velho",
-                "Legislação e conteúdos específicos",
-                "10 Mapas Mentais de Revisão",
-                "Cronograma de 27 Dias",
-                "Material digital",
-                "Acesso imediato",
-              ].map((f) => (
-                <li key={f} className="flex items-start gap-2.5">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent-foreground" />
-                  <span className="text-foreground/90">{f}</span>
-                </li>
-              ))}
-            </ul>
-            <Button asChild variant="gold" size="xl" className="mt-7 w-full shadow-lg">
-              <a href="https://drive.google.com/file/d/1ndURm-7l3rU5LsuNaDDhmw9rxSbz6ezH/view?usp=drive_link">
-                Quero o material completo
-                <ArrowRight className="size-4" />
-              </a>
-            </Button>
-          </Card>
-        </div>
+          </div>
+
+          <Separator className="my-8" />
+
+          <ul className="grid gap-3 text-sm sm:grid-cols-2">
+            {inclusos.map((item) => (
+              <li key={item} className="flex items-start gap-2.5">
+                <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-accent-foreground" />
+                <span className="text-foreground/90">{item}</span>
+              </li>
+            ))}
+          </ul>
+        </Card>
       </div>
     </section>
   );
