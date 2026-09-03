@@ -617,7 +617,7 @@ function Pricing() {
               ))}
             </ul>
             <Button asChild variant="outline" size="xl" className="mt-7 w-full">
-              <a href="#topo">Quero as 100 questões</a>
+              <a href="https://drive.google.com/file/d/1ndURm-7l3rU5LsuNaDDhmw9rxSbz6ezH/view?usp=drive_link">Quero as 100 questões</a>
             </Button>
           </Card>
 
@@ -673,7 +673,7 @@ function Pricing() {
               ))}
             </ul>
             <Button asChild variant="gold" size="xl" className="mt-7 w-full shadow-lg">
-              <a href="#topo">
+              <a href="https://drive.google.com/file/d/1ndURm-7l3rU5LsuNaDDhmw9rxSbz6ezH/view?usp=drive_link">
                 Quero o material completo
                 <ArrowRight className="size-4" />
               </a>
